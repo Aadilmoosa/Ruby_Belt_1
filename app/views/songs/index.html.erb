@@ -1,0 +1,22 @@
+
+<h3>Others who added <%= @song.artist %>'s <%= @song.title %> </h3>
+
+<table>
+    <tr>
+        <th style="border-left: 2px solid black; border-top: 2px solid black;">Name:</th>
+        <th style="border-left: 2px solid black; border-top: 2px solid black;">Count:</th>
+    </tr>
+    <% @users.distinct.each do |user| %>
+        <tr>
+            <td style="border-left: 2px solid black; border-top: 2px solid black;">
+                <h4><a href="/users/<%= user.id %>/playlist"><%= user.first_name %> <%= user.last_name %> </a></h4>
+            </td>
+
+            <td style="border-left: 2px solid black; border-top: 2px solid black;">
+                <h4><%= user.song_count %></h4>
+            </td>
+        </tr>
+    <% end %>
+</table>
+
+
